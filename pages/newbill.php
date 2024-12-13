@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billing Information</title>
+    <title>User-Friendly Billing Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,84 +14,80 @@
         }
 
         body {
-            background-color: #f4f4f4;
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             padding: 20px;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-image: url('../images/DALL·E 2024-12-12 17.05.54 - A creative background image for a dried fish food company, featuring a display of high-quality dried fish products such as small dried fishes, dried s.webp');
-        }
-
-        .image-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .background-image {
-            width: 100%;
-            height: auto;
-            opacity: 0.3; /* Makes the image transparent */
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .company-title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-            margin: 0;
-            color:solid black;
         }
 
         .form-container {
-            background: white;
+            background: rgba(255, 255, 255, 0.85); /* Semi-transparent white background */
             width: 100%;
-            max-width: 800px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 10px 20px;
-            background-image: url(''); /* Add the image as a background */
-            background-position: center center; /* Center the image */
-            background-repeat: no-repeat; /* Prevent image repetition */
-            background-size: cover; /* Ensure the image covers the form */
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            position: relative;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2; /* Adjust transparency */
+            z-index: 0; /* Place below the content */
+            border-radius: 12px;
         }
 
         h2 {
             text-align: center;
             margin-bottom: 20px;
             color: #333;
+            position: relative;
+            z-index: 1; /* Place above the background image */
         }
 
         form {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         label {
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 5px;
+            color: #555;
         }
 
         input, textarea, select, button {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+            outline: none;
         }
 
         textarea {
-            resize: none;
+            resize: vertical;
         }
 
         button {
@@ -100,17 +96,33 @@
             border: none;
             font-weight: bold;
             cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
             background-color: #45a049;
         }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 600px) {
+            .form-container {
+                padding: 15px;
+            }
+
+            input, textarea, select, button {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
-    
     <div class="form-container">
-        <h2>Bill Information</h2>
+        <h2>Billing Form</h2>
         <form action="#" method="POST">
             <label for="bill-no">Bill Number</label>
             <input type="text" id="bill-no" name="bill_no" placeholder="Enter Bill Number" required>
@@ -118,8 +130,8 @@
             <label for="customer-name">Customer Name</label>
             <input type="text" id="customer-name" name="customer_name" placeholder="Enter Customer Name" required>
 
-            <label for="item-details">Item Details</label>
-            <textarea id="item-details" name="item_details" placeholder="Enter Item Details" rows="4" required></textarea>
+            <label for="item-details">Item Name</label>
+            <textarea id="item-details" name="item_details" placeholder="Enter Item Details" rows="3" required></textarea>
 
             <label for="rate">Rate</label>
             <input type="number" id="rate" name="rate" placeholder="Enter Rate (per item)" required>

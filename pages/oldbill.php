@@ -39,6 +39,7 @@
         .search-container h2 {
             margin-bottom: 10px;
             text-align: center;
+            color: black;
         }
 
         .search-form {
@@ -52,7 +53,7 @@
             flex: 1;
             padding: 10px;
             border-radius: 10px;
-            border: 1px solid white;
+            border: 1px solid black;
             background: transparent;
             color: white;
             font-size: 14px;
@@ -82,17 +83,22 @@
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
-            border: 1px solid white;    
+            border: 1px solid black;    
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             overflow-x: auto;
+            margin-top: 20px;
+            color:black;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            color: white;
+            color: black;
             text-align: left;
+            border-color: black;
+            margin-top: 5px;
+         
         }
 
         th, td {
@@ -113,29 +119,53 @@
         .sub-header {
             background-color: #f9f9f9;
         }
+        .creative-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0000FF; /* Vibrant red color */
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            border: 2px solid #0000FF; /* Border for definition */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            transition: all 0.3s ease; /* Smooth transition effects */
+            text-align: center;
+        }
+
+        .creative-button:hover {
+            background-color: #0000FF; /* Darker red on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+            transform: scale(1.05); /* Slightly larger for effect */
+        }
+
+        .creative-button:active {
+            transform: scale(1); /* Reset scale on click */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on click */
+        }
     </style>
 </head>
 <body>
     <div class="search-container">
         <h2>Search Items</h2>
         <form class="search-form" action="#" method="GET">
-            <input type="text" name="item_name" placeholder="Enter Item Name">
-            <input type="text" name="category" placeholder="Enter Category">
-            <select name="status">
-                <option value="" disabled selected>Status</option>
-                <option value="available">Available</option>
-                <option value="out_of_stock">Out of Stock</option>
-            </select>
+            <input type="text" name="item_name" placeholder="Enter Customer Name">
+            
+            
             <button type="submit">Search</button>
         </form>
     </div>
-    <li><a href="logout.php" class="link">Logout</a></li>
+    <title>Logout</title>
+    
+    <li><a href="logout.php" class="creative-button">Logout</a></li>
+
     <div class="table-container">
-        <h2>Table 2: Old Bill Payments</h2>
+        <h2> Old Bill Payments</h2>
         <table>
             <thead>
                 <tr>
-                    <th></th>
+                    <th>Bill No</th>
                     <th>Customer</th>
                     <th>Amount</th>
                     <th> Advance</th>
@@ -146,7 +176,23 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>
+                    <select name="status">
+                        <option value="pending" selected>Cash</option>
+                        <option value="received">Cheque</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
                     <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    <select name="status">
+                        <option value="pending" selected>Cash</option>
+                        <option value="received">Cheque</option>
+                    </select>
+                    </td>
                 </tr>
             </tbody>
         </table>

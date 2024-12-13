@@ -60,12 +60,12 @@
         }
 
         .search-form input::placeholder {
-            color: #ccc;
+            color:white;
         }
 
         .search-form button {
             flex-basis: 100%;
-            background: white;
+            background: purple;
             color: black;
             cursor: pointer;
             font-weight: bold;
@@ -87,6 +87,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             overflow-x: auto;
+            margin-top: 20px;
         }
 
         table {
@@ -98,7 +99,7 @@
 
         th, td {
             padding: 10px;
-            border: 1px solid white;
+            border: 1px solid black;
         }
 
         th {
@@ -114,14 +115,39 @@
         .sub-header {
             background-color: #f9f9f9;
         }
+        .creative-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0000FF; /* Vibrant red color */
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            border: 2px solid #0000FF; /* Border for definition */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            transition: all 0.3s ease; /* Smooth transition effects */
+            text-align: center;
+        }
+
+        .creative-button:hover {
+            background-color: #0000FF; /* Darker red on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+            transform: scale(1.05); /* Slightly larger for effect */
+        }
+
+        .creative-button:active {
+            transform: scale(1); /* Reset scale on click */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on click */
+        }
     </style>
 </head>
 <body>
     <div class="search-container">
         <h2>Search Items</h2>
         <form class="search-form" action="#" method="GET">
-            <input type="text" name="item_name" placeholder="Enter Item Name">
-            <input type="text" name="category" placeholder="Enter Category">
+            <input type="text" name="item_name" placeholder="Enter customer Name">
+            
             <select name="status">
                 <option value="" disabled selected>Status</option>
                 <option value="available">Available</option>
@@ -130,17 +156,23 @@
             <button type="submit">Search</button>
         </form>
     </div>
-    <li><a href="logout.php" class="link">Logout</a></li>
+    <title>Logout</title>
+    
+    <li><a href="logout.php" class="creative-button">Logout</a></li>
 
     <div class="table-container">
-        <h2>Table 1: Inventory</h2>
+        <h2>Table 1: All Chq</h2>
         <table>
             <thead>
                 <tr>
                     <th>BillNo</th>
                     <th>Customer Name</th>
-                    <th>Amount</th> 
-                    <th> Payment status</th>
+                    <th>Chq No</th> 
+                    <th> Bank</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    
                   </tr>
             </thead>
             <tbody>
@@ -148,9 +180,30 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td> <select name="payment-status-1">
-                        <option value="credit-card">Credit Card</option>
-                        <option value="paypal">PayPal</option>                    </select> </td>               
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                
+                    <td>
+                    <select name="status">
+                        <option value="pending" selected>Pending</option>
+                        <option value="received">Received</option>
+                    </select>
+                </td>             
+                </tr>
+                <tr> 
+                    <td></td>
+                    <td><td>
+                    <td></td>
+                    </td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                    <select name="status">
+                        <option value="pending" selected>Pending</option>
+                        <option value="received">Received</option>
+                    </select>
+                    </td>
                 </tr>
             </tbody>
         </table>
